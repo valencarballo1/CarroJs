@@ -1,0 +1,144 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: linear-gradient(50deg, rgb(107, 103, 103), rgb(66, 64, 64));
+    color: white;
+    font-family: 'Oswald', sans-serif;
+
+}
+.page-nav{
+    border: 1px solid black;
+    background-color: grey;
+    position: relative;
+}
+.page-nav h1{
+    text-align: center;
+    margin: 20px;
+}
+.button-checkout{
+    transition-duration: 0.4s;
+    background-color: white;
+    color: black;
+    position: absolute;
+    right: 15px;
+    top: 30%;
+    padding: 5px;
+    font-size: 25px;
+}
+.button-checkout:hover{
+    background-color: #008cba;
+    color: white;
+}
+
+img{
+    width: 100%;
+}
+
+.contenedor{
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+.titulo-comida{
+    text-align: center;
+    padding-top: 1rem;
+    color: black;
+    font-size: 2.3rem;
+    margin: 0;
+    opacity: 0.8;
+}
+
+.contenedor-comidas{
+    margin-top: 1rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.card{
+    margin-bottom: 2rem;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    overflow: hidden;
+}
+
+.imagen-comida{
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.precio{
+    color: black;
+}
+
+.btn-favorito{
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-favorito:hover{
+    background-color: aliceblue;
+}
+
+/* Carrito Agregado */
+h2{
+    color: black;
+    text-align: center;
+    margin-bottom: 1rem;
+    margin: 0;
+}
+
+
+.listadoFavoritos{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media screen and (max-width: 800px){
+    body{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .contenedor-comidas{
+        margin-top: 1rem;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .listadoFavoritos{
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 400px){
+    body{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .contenedor-comidas{
+        margin-top: 1rem;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+    .listadoFavoritos{
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(1, 1fr);
+    } 
+}
