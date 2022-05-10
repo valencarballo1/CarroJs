@@ -2,21 +2,21 @@ const comidas = [
     {
         id:1,
         name: "Bacon y Cheddar",
-        img: '../images/cheddarBacon.jpg',
+        img: './images/cheddarBacon.jpg',
         precio: 850,
         cantidad: 1
     },
     {
         id:2,
         name: "Burga Bacon y Cheddar + Bondiola",
-        img: '../images/Bondiola+Cebolla.jpg',
+        img: './images/Bondiola+Cebolla.jpg',
         precio: 990,
         cantidad: 1
     },
     {
         id:3,
         name: "Cuarto De Libra",
-        img: '../images/cuartoLibra.jpg',
+        img: './images/cuartoLibra.jpg',
         precio: 900,
         cantidad: 1
     }
