@@ -140,10 +140,12 @@ function ActualizarCarrito(agregada){
         divComida.appendChild(btnComida);
 
         carritoContenedor.appendChild(divComida)
-        localStorage.setItem('carrito', JSON.stringify(carrito))       
+        localStorage.setItem('carrito', JSON.stringify(carrito))
     }
     contadorCarrito.innerText = carrito.length;
-    Total = precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.precio, 0);
+    precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.precio, 0);
+    vaciarCarro();
+    // Total = precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.precio, 0);
 }
 
 const eliminarDelCarrito = (id) =>{
@@ -154,23 +156,39 @@ const eliminarDelCarrito = (id) =>{
     localStorage.setItem('carrito', JSON.stringify(carrito))
 }
 
-vaciarCarrito.addEventListener('click', () =>{
-    carrito.length = 0;
-    ActualizarCarrito(carrito);
-    localStorage.setItem('carrito', JSON.stringify(carrito))
-
-})
-
-pay.addEventListener('click', () =>{
-    if (Total > 0){
-        alert("El monto total es de: $" + Total);
+function vaciarCarro(){
+    vaciarCarrito.addEventListener('click', () =>{
         carrito.length = 0;
         ActualizarCarrito(carrito);
         localStorage.setItem('carrito', JSON.stringify(carrito))
-    } else{
-        alert("No seleccionaste ningun producto");
-    }
-})
+    
+    })
+}
+
+function pagar(){
+    pay.addEventListener('click', () =>{
+        Total = carrito.reduce((acc, prod) => acc + prod.precio, 0);
+        if (Total > 0){
+            Swal.fire(
+                'Compra finalizada!',
+                'El monto total es de: $' + Total,
+                'success'
+            )
+            carrito.length = 0;
+            ActualizarCarrito(carrito);
+            localStorage.setItem('carrito', JSON.stringify(carrito))
+        } else{
+            Swal.fire({
+                icon: 'error',
+                title: 'Algo salio mal',
+                text: 'No seleccionaste ningun producto!',
+              })
+        }
+    })
+}
+
+pagar()
+
 
 
 
